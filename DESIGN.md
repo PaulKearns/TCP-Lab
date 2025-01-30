@@ -1,8 +1,5 @@
-# CSEE 4119 Spring 2024, Assignment 2 Design File
+# Transmission Control Protocol Implementation Design File
 ## Paul Kearns
-## GitHub username: PaulKearns
-
-*Please replace this text with your protocol design, which includes the types of messages, message type, and protocol elements to achieve reliable data transfer.*
 
 I implemented a client/server application to transfer data from the client to the server using Go-Back-N.
 

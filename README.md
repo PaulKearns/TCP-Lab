@@ -1,14 +1,14 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/KQFw0QXH)
-# CSEE 4119 Spring 2024, Assignment 2
+# Transmission Control Protocol Using Go-Back-N
 ## Paul Kearns
-## GitHub username: PaulKearns
 
-*Please replace this text with information on how to run your code, description of each file in the directory, and any assumptions you have made for your code*
+This is an implementation of a protocol for reliable transfer, similar to TCP but using go-back-n instead of selective repeat. A client and server communicate over a simulated lossy network, with both potential bit corruption and dropped packets, to transmit a file from the client to the server.
 
-I run my network, client, and server, respectively, using the following commands in terminal. The network must be launched first.
-python3 network.py 51000 '127.0.0.1' 50000 '127.0.0.1' 60000 Loss.txt
-python3 app_client.py 50000 127.0.0.1 51000 1460
+Run the network, client, and server, respectively, using the following commands in terminal. The network must be launched first.\
+python3 network.py 51000 '127.0.0.1' 50000 '127.0.0.1' 60000 Loss.txt\
+python3 app_client.py 50000 127.0.0.1 51000 1460\
 python3 app_server.py 60000 4096
+
+The packet loss rate and bit error rate on the simulated network can be adjusted using the Loss.txt file. Specifically, each line in Loss.txt follows the form \<time\> \<segment loss rate\> \<bit error rate\>. For example, the line "5 .1 0.000005" indicates that at 5 seconds, the packet loss rate changes to 10% and the bit error rate changes to .0005%.
 
 The server is launched using init(), which initializes necessary variables as well as two threads: one for receiving data over the server socket and writing it to a receive buffer, and another responsible for processing this data and writing data that is in order to the data buffer. The functions run on these threads are rcv_handler() and segment_handler() respectively. Using a state variable for whether the connection is closed, these threads do not take actions until the connection is established by the accept() function.
 

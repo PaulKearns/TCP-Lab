@@ -1,8 +1,6 @@
-# CSEE 4119 Spring 2024, Assignment 2 Testing File
+# Testing File
 ## Paul Kearns
-## GitHub username: PaulKearns
 
-*Please replace this text with test cases you have and results*
 
 I will be evaluating three test cases with three different parameters in Loss.txt. I will not vary Loss.txt parameters over time because this will make it more difficult to isolate causes. I will paste log outputs for each test case at the bottom of this document. I also wrote a segment processing unit test in test_segment_processing.py, but this is not functional on the VM as the VM does not have pytest.
 
